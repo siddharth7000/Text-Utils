@@ -5,10 +5,10 @@ import TextForm from "./components/TextForm";
 import React, { useState } from "react";
 // import Alert from "./components/Alert";
 import { Routes, Route } from "react-router-dom";
-
 import toast from "react-hot-toast";
 import Footer from "./components/Footer";
-function App() {
+
+const App =  () => {
   const [mode, setmode] = useState("light");
   const togglemode = () => {
     if (mode === "dark") {
@@ -36,7 +36,7 @@ function App() {
       {/* <Alert alert={alert}/> */}
       <div className="container my-3">
         <Routes>
-          <Route path="/" element={<TextForm heading = "Enter Your Text To Analyse" mode ={mode}/>} />
+          <Route path="/Textutils123" element={<TextForm heading = "Enter Your Text To Analyse" mode ={mode}/>} />
           <Route path="about" element={<About mode ={mode}/>} />
         </Routes>
       </div>

@@ -31,6 +31,7 @@ export default function TextForm(props) {
 
   const [text, setText] = useState("");
   return (
+    <>
     <div className="container">
     <div className={`text-${props.mode === "dark" ? "light" : "dark"}`}>
       <h1 className="text-center">
@@ -92,5 +93,6 @@ export default function TextForm(props) {
       
     </div>
     </div>
+    </>
   );
 }
