@@ -14,11 +14,11 @@ const App =  () => {
     if (mode === "dark") {
       setmode("light");
       document.body.style.backgroundColor = "white";
-      toast.success("Dark Mode is enabled");
+      toast.success("Light Mode is enabled");
     } else {
       setmode("dark");
       document.body.style.backgroundColor = "#042743";
-      toast.success("Light Mode is enabled");
+      toast.success("Dark Mode is enabled");
     }
   };
 

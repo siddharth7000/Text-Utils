@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState }  from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
+import { useEffect } from 'react';
 export default function Navbar(props) {
+    useEffect(() => {
+      props.togglemode();
+    }, []);
+    
+    const [highlighthomes, sethighlighthomes] = useState("active");
+    const [highlightabouts, sethighlightabouts] = useState("");
+    const highlighthome=()=>{
+      sethighlighthomes("active");
+      sethighlightabouts("");
+
+    }
+    const highlightabout=()=>{
+      sethighlighthomes("");
+      sethighlightabouts("active");
+
+    }
   return (
+   
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/Textutils123">
+        <Link className={`navbar-brand ${highlighthomes}`} onClick={highlighthome} to="/Textutils123">
           {props.title}
         </Link>
         <button
@@ -25,12 +42,14 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/Textutils123">
+              <Link className={`nav-link ${highlighthomes}`} onClick={highlighthome} aria-current="page" to="/Textutils123">
                 Home
               </Link>
+              
             </li>
+            
             <li className="nav-item">
-              <Link className="nav-link" to="/About">
+              <Link className={`nav-link ${highlightabouts}`} onClick={highlightabout} to="/About">
                 About TextUtils
               </Link>
             </li>
@@ -49,8 +68,9 @@ export default function Navbar(props) {
               }`}
               htmlFor="flexSwitchCheckDefault"
             >
-              Enable Dark Mode
+              Enable Light Mode
             </label>
+            
           </div>
         </div>
       </div>
